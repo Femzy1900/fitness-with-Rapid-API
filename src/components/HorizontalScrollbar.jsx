@@ -4,6 +4,7 @@ import { Box, Typography } from '@mui/material';
 import BodyPart from './BodyPart';
 import RightArrowIcon from '../assets/icons/right-arrow.png';
 import LeftArrowIcon from '../assets/icons/left-arrow.png';
+import ExerciseCard from './ExerciseCard';
 
 
 // Left arrow component for scroll menu
@@ -38,7 +39,7 @@ const HorizontalScrollbar = ({ data, bodyParts, setBodyPart, bodyPart }) => (
         title={category.id || category}
         m="0 40px"
       >
-        <BodyPart category={category} setBodyPart={setBodyPart} bodyPart={bodyPart} />  
+        {bodyParts ? <BodyPart category={category} setBodyPart={setBodyPart} bodyPart={bodyPart} /> : <ExerciseCard exercise={item} /> }
       </Box>
     ))}
   </ScrollMenu>
