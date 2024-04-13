@@ -7,9 +7,28 @@ import ExerciseVideos from '../components/ExerciseVideos';
 import SimilarExercise from '../components/SimilarExercise';
 
 const ExerciseDetail = () => {
+
+  const [exerciseDetail, setExerciseDetail] = useState({});
+  const [exerciseVideos, setExerciseVideos] = useState([]);
+  const [targetMuscleExercises, setTargetMuscleExercises] = useState([]);
+  const [equipmentExercises, setEquipmentExercises] = useState([]);
+  const { id } = useParams()
+
+  useEffect(() => {
+    const fetchExercisesData = async () => {
+      const exerciseDbUrl = 'https://exercisedb.p.rapidapi.com';
+      const youtubeSearchUrl = 'https://youtube-search-and-download.p.rapidapi.com';
+
+
+    }
+
+    fetchExercisesData()
+  }, [id])
+
+
   return (
     <Box>
-      <Detail />
+      <Detail ExerciseDetail={exerciseDetail}/>
       <ExerciseVideos />
       <SimilarExercise />
 
