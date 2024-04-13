@@ -29,26 +29,19 @@ const RightArrow = () => {
 };
 
 
-const HorizontalScrollbar = ({ data, bodyPart, setBodyPart }) => {
-  // Ensure to use proper unique identifiers for each category
-  const categories = Array.from(new Set(data.map(item => item.Muscles)));
-
-  
-  return (
-    <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
-      {categories.map((category, index) => (
-        <Box
-          key={index}
-          itemID={index} // Use a unique ID here
-          title={category} // Display category name as title
-          m="0 20px" // Adjust margin as needed
-          style={{ minWidth: '100px', textAlign: 'center' }} // Example styling
-        >
-          <BodyPart category={category} bodyPart={bodyPart} setBodyPart={setBodyPart} />
-        </Box>
-      ))}
-    </ScrollMenu>
-  );
-};
+const HorizontalScrollbar = ({ data, bodyParts, setBodyPart, bodyPart }) => (
+  <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
+    {data.map((category) => (
+      <Box
+        key={category.id || category}
+        itemId={category.id || category}
+        title={category.id || category}
+        m="0 40px"
+      >
+        <BodyPart category={category} setBodyPart={setBodyPart} bodyPart={bodyPart} />  
+      </Box>
+    ))}
+  </ScrollMenu>
+);
 
 export default HorizontalScrollbar;
